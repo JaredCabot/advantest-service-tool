@@ -1,0 +1,22 @@
+# Bench scripts, the manual source and the offline test suite. Not published.
+support/
+
+# Everything the tool creates when it runs.
+cal_images/
+report_data/
+reports/
+runctl/
+adjust_run_*.log
+settling_*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Scratch
+_to_delete/
+*.tmp
+*.bak

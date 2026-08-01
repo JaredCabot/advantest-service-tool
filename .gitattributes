@@ -1,0 +1,31 @@
+# Line endings and binary files.
+#
+# Git for Windows is commonly configured with core.autocrlf = true, which
+# rewrites LF to CRLF on checkout and back on commit. That is right for source
+# and wrong for anything else: applied to a PDF it inserts a byte wherever a
+# 0x0A happens to appear, and the file that comes out of a clone will not open.
+#
+# This was not hypothetical. R6161_Technical_Reference.pdf was committed without
+# this file in place and the stored copy was damaged -- 227,600 bytes went in,
+# 449,198 came out, and pypdf refused it as truncated. Nothing warns you: the
+# working copy stays perfect, and only someone cloning the repository sees the
+# broken file.
+
+# Text files: normalise to LF in the repository, let each checkout use whatever
+# suits the platform.
+* text=auto
+
+# Everything below is bytes, and must be stored and restored unchanged. The
+# "binary" macro is shorthand for -text -diff.
+*.pdf   binary
+*.bin   binary
+*.png   binary
+*.jpg   binary
+*.gif   binary
+*.svg   text
+*.ico   binary
+*.zip   binary
+
+# Calibration memory images are 364 raw bytes with no structure that survives
+# any kind of translation.
+cal_images/*.bin binary
