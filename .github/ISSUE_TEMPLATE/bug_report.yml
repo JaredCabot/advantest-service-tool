@@ -1,0 +1,122 @@
+name: Bug report
+description: Something does not work as the README describes
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. The more of this you can fill in, the faster the problem can be found.
+
+        **The console output answers most of the questions here.** Copy everything the tool printed from start-up to the problem and paste it below.
+  - type: input
+    id: version
+    attributes:
+      label: Tool version
+      description: From the file name or the start-up banner. Say if you changed the code.
+      placeholder: "2.0.0"
+    validations:
+      required: true
+  - type: input
+    id: instrument
+    attributes:
+      label: Instrument ID
+      description: The *IDN? line the tool printed, copied whole - it gives the model, serial and firmware version.
+      placeholder: "ADVANTEST,R6161,0,A05"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "Windows 11 23H2 / Ubuntu 24.04 / macOS 14.5"
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python and PyVISA versions
+      description: From python --version and pip show pyvisa.
+      placeholder: "Python 3.12.4, PyVISA 1.14.1"
+    validations:
+      required: true
+  - type: input
+    id: visa
+    attributes:
+      label: VISA layer and GPIB adapter
+      description: The VISA software and its version, and the GPIB interface the instrument is on.
+      placeholder: "NI-VISA 2024 Q3, NI GPIB-USB-HS"
+    validations:
+      required: true
+  - type: input
+    id: reference
+    attributes:
+      label: Reference instruments
+      description: The reference multimeter or other standards, and the config file chosen for each.
+      placeholder: "HP 3458A (dmm_configs/hp3458a.ini)"
+    validations:
+      required: false
+  - type: dropdown
+    id: area
+    attributes:
+      label: What were you doing?
+      options:
+        - "Connecting, or scanning the bus"
+        - "Performance verification (as-found / as-left)"
+        - "Full adjustment"
+        - "Calibration certificate"
+        - "Calibration-memory inspection or compare"
+        - "report_config.ini or uncertainty.ini"
+        - "Writing or loading an instrument plugin"
+        - "The R6161 Technical Reference"
+        - "Installing or starting the tool"
+        - "Something else"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: Include any message the program or the instrument showed, word for word.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The shortest sequence that shows the problem, and whether it happens every time.
+      placeholder: |
+        1. Start AdvantestServiceTool_v2.0.0.py
+        2. Choose ...
+        3. ...
+    validations:
+      required: false
+  - type: textarea
+    id: output
+    attributes:
+      label: Console output
+      description: Paste everything the tool printed. Long output can be attached as a .txt file.
+      render: text
+    validations:
+      required: false
+  - type: dropdown
+    id: language
+    attributes:
+      label: Program language
+      description: Only matters if the problem is with the text the program or a certificate shows.
+      options:
+        - "English"
+        - "Deutsch"
+        - "EspaÃ±ol"
+        - "FranÃ§ais"
+        - "Italiano"
+        - "æ—¥æœ¬èªž"
+    validations:
+      required: false
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Saved result files (.json) or certificates that show the problem can be attached. Please do not attach calibration data, EEPROM or NVRAM images unless asked - they are specific to one instrument.
+    validations:
+      required: false

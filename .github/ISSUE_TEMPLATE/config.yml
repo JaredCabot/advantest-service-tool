@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: README
+    url: https://github.com/JaredCabot/advantest-service-tool#readme
+    about: Setup, supported instruments, the menus and the plugin layout.
+  - name: R6161 Technical Reference
+    url: https://github.com/JaredCabot/advantest-service-tool/blob/main/R6161_Technical_Reference.pdf
+    about: The R6161 reference recovered from firmware A05.
